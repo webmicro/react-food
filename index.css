@@ -41,3 +41,13 @@
 .card_item img{
     width: 200px;
 }
+.card_item .price{ 
+    float: right;
+}
+.card_item .rating{ 
+    float: left;
+}
+.card_item .distance{ 
+    font-weight: bold;
+    padding-left: 15px;;
+}
