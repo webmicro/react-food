@@ -1,6 +1,7 @@
 import HeaderLogo from './HeaderLogo'
 
 const Header = ( props ) =>{
+    console.log( 'in render Header' )
     console.log(props)
     return ( 
         <div className="header">
