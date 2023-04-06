@@ -1,10 +1,13 @@
 import HeaderLogo from './HeaderLogo'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const Header = ( props ) =>{
     const [ headerText, setHeaderText] = useState('')
     console.log( 'in render Header' )
     console.log(props)
+    useEffect ( ()=>{ 
+        console.log(" in useEffect header ")
+    }, [] );
     return ( 
         <div className="header">
             {headerText}
