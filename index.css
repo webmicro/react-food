@@ -68,3 +68,11 @@
     padding: 5px 10px;
     cursor: pointer;
 }
+.shimmer {
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmer > div {
+ background-color:darkslategray;
+ min-height: 200px;
+}

@@ -1,6 +1,7 @@
 import CardItem from './CardItem';
 import { API_URL } from '../config/constants';
 import { useEffect, useState } from 'react';
+import Shimmer from './Shimmer';
 
 const filterResData = ( allRecipes, s ) => {
     const filterData = allRecipes.filter( ( res ) => { 
@@ -24,6 +25,7 @@ const BodyApp = () =>{
     useEffect ( ()=>{ 
         get_api_data();
     }, [] );
+
     return (
         <>
             <div className='serach-container'>
@@ -46,11 +48,12 @@ const BodyApp = () =>{
             </div>
             <div className="container">
             {
+                allRecipeData.length ? 
                 allRecipes.map( function ( rec, index ){ 
                     return (
                         <CardItem restaurant = {rec} key={ rec.data.uuid } />
                     )
-                })
+                }) : <Shimmer />
             }            
         </div>
         </>

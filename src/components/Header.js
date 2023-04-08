@@ -1,8 +1,10 @@
 import HeaderLogo from './HeaderLogo'
 import { useState, useEffect } from 'react'
+import Login from './Login'
 
 const Header = ( props ) =>{
     const [ headerText, setHeaderText] = useState('')
+    
     console.log( 'in render Header' )
     console.log(props)
     useEffect ( ()=>{ 
@@ -25,7 +27,7 @@ const Header = ( props ) =>{
                     <li><a href="">About</a></li>                    
                     <li><a  href="">Cart</a></li>
                     <li><a  href="">Contact</a></li>
-                    <li><a  href="">Login</a></li>
+                    <Login/>
                 </ul>
             </div>
         </div>
