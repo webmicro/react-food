@@ -1,6 +1,7 @@
 import HeaderLogo from './HeaderLogo'
 import { useState, useEffect } from 'react'
 import Login from './Login'
+import { Link } from 'react-router-dom'
 
 const Header = ( props ) =>{
     const [ headerText, setHeaderText] = useState('')
@@ -24,9 +25,9 @@ const Header = ( props ) =>{
             {props.y}
             <div className="navbar">
                 <ul>
-                    <li><a href="">About</a></li>                    
+                    <li><Link to="/about">About</Link></li>                    
                     <li><a  href="">Cart</a></li>
-                    <li><a  href="">Contact</a></li>
+                    <li><Link to="/contact">Contact</Link></li>
                     <Login/>
                 </ul>
             </div>
