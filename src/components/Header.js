@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom'
 const Header = ( props ) =>{
     const [ headerText, setHeaderText] = useState('')
     
-    console.log( 'in render Header' )
+    //console.log( 'in render Header' )
     console.log(props)
     useEffect ( ()=>{ 
-        console.log(" in useEffect header ")
+    //    console.log(" in useEffect header ")
     }, [] );
     return ( 
         <div className="header">
@@ -25,7 +25,9 @@ const Header = ( props ) =>{
             {props.y}
             <div className="navbar">
                 <ul>
-                    <li><Link to="/about">About</Link></li>                    
+                    <li><Link to="/">Home</Link></li>                    
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/services">Services</Link></li>                    
                     <li><a  href="">Cart</a></li>
                     <li><Link to="/contact">Contact</Link></li>
                     <Login/>

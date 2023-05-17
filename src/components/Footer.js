@@ -1,9 +1,9 @@
 import { useEffect } from "react"
 
 const Footer = () =>{
-    console.log('in Footer render')
+    // console.log('in Footer render')
     useEffect ( ()=>{ 
-        console.log(" in useEffect footer ")
+       // console.log(" in useEffect footer ")
     } );
     return (
         <div className="footer">

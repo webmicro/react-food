@@ -1,9 +1,12 @@
 import { IMAGE_URL } from '../config/constants'
+import { Link } from 'react-router-dom'
 
 const CardItem = ( { restaurant } ) =>{
+    //console.log(restaurant)
     return (
         <div className="card_item">
-            <div><img src={ `${IMAGE_URL}${restaurant?.data?.cloudinaryImageId}` } /></div>
+            <div>
+            <Link to={ '/restaurants-detail/'+restaurant.data.id } ><img src={ `${IMAGE_URL}${restaurant?.data?.cloudinaryImageId}` } /></Link></div>
             <h2>{restaurant?.data?.name}</h2>
             <span>{ restaurant?.data?.cuisines.join( ", " )}</span>
             <p>

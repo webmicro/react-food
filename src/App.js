@@ -6,8 +6,11 @@ import BodyApp from './components/Body'
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import RestaurantsDetail from './components/RestaurantsDetail'
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom"
+import Services from "./components/Services";
+import Gallery from './components/Gallery';
 
 
 // const heading = <h1>THis is Heading</h1>
@@ -34,7 +37,7 @@ const AppLayout = () => {
     return (
         <React.Fragment>
             <Header x ="Hello" y ="Js" z =" Enjoy" />
-            <BodyApp />
+            <Outlet />
             <Footer />
         </React.Fragment>
     )
@@ -44,26 +47,33 @@ const router = createBrowserRouter([
     {
         path: "/",
         element : <AppLayout />,
-        errorElement : <Error />
-    },
-    {
-        path: "/about",
-        element : <React.Fragment>
-        <Header x ="Hello" y ="Js" z =" Enjoy" />
-        <About />
-        <Footer />
-    </React.Fragment>
-    },
-    {
-        path : "/contact",
-        element: <React.Fragment>
-        <Header x ="Hello" y ="Js" z =" Enjoy" />
-        <Contact />
-        <Footer />
-    </React.Fragment>
-    }
+        errorElement : <Error />,
+        children : [
+            {
+                path: "/",
+                element : <BodyApp />
+            },
+            {
+                path: "/about",
+                element : <About name ="India" capital="New Delhi" />
+            },
+            {
+                path : "/contact",
+                element: <Contact />
+            },
+            {
+                path : "/services",
+                element: <React.Fragment>
+                        <Services name ="India" capital="New Delhi" />
+                        </React.Fragment>
+            },
+            {
+                path : "/restaurants-detail/:res_id",
+                element: <RestaurantsDetail />
+            }
+        ]
+    },    
 ]  
 ) 
-
 const root = ReactDom.createRoot( document.getElementById("root") )
 root.render( <RouterProvider router={router} /> )
