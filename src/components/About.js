@@ -1,35 +1,19 @@
 import { useEffect, useState } from "react";
+import { get_api_data } from '../helpers/common'
+import useNews from '../utils/useNews'
 
 const About = ( { name, capital} ) => {
-    const [ count, setCount ] = useState(0);
-    const [ count2, setCount2 ] = useState(0);
-    
-    useEffect( ()=> {
-        const clear_i = setInterval ( ()=>{ console.log('in About useEffect call setInterval') }, 1000 );
-        
-        return ( ) => {
-            clearInterval( clear_i );
-            console.log('This is useEffect return')
-        }
-    }, [] );
-    
+    const news_data = useNews()
     return(
         <div className="about">
             <h1>About Us</h1>
-            Count:  {count}<br></br>
-            Count2: {count2}<br></br>
-            { name } and { capital }
-            <br></br>
-            <button onClick={ () => { setCount( count + 1 )  }}>Count++</button>
-            <button onClick={ () => { setCount2( count2 + 1 )  }}>Count2++</button>
-
-            <p>THis is about page example. THis is about page example. 
-            THis is about page example. THis is about page example. 
-            THis is about page example. THis is about page example. 
-            THis is about page example. THis is about page example. 
-            THis is about page example. THis is about page example. 
-            THis is about page example. THis is about page example. 
-            </p>
+            {
+                news_data?  news_data.map( ( d, index )=>{
+                    return (
+                        <h3 key={index}>{d.title}</h3>
+                    )
+                }) : 'Loading..'
+            }
         </div>
     )
 }
