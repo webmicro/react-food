@@ -2,6 +2,7 @@ import CardItem from './CardItem';
 import { API_URL } from '../config/constants';
 import { useEffect, useState } from 'react';
 import Shimmer from './Shimmer';
+import useOffline from '../utils/useOffline';
 
 const filterResData = ( allRecipes, s ) => {
     const filterData = allRecipes.filter( ( res ) => { 
@@ -15,6 +16,8 @@ const BodyApp = () =>{
     const [ allRecipeData, setAllRecipeData ]  = useState([])    
     const [ allRecipes, setAllRecipes ]  = useState([])    
     const [serachText, setSerachText] = useState('');
+    const isOffline = useOffline ();
+    
     const  get_api_data = async () =>{
         const data = await fetch(API_URL);
         const data_json = await data.json();
@@ -26,6 +29,9 @@ const BodyApp = () =>{
         get_api_data();
     }, [] );
 
+    if ( isOffline ){
+        return <h1>Error! You are offline</h1>
+    }
     return (
         <>
             <div className='serach-container'>
