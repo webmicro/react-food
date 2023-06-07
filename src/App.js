@@ -1,17 +1,19 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDom from "react-dom/client"
 import Header from './components/Header'
 import Footer from "./components/Footer";
 import BodyApp from './components/Body'
 import About from "./components/About";
-import Contact from "./components/Contact";
 import Error from "./components/Error";
+import Shimmer from './components/Shimmer';
+
 import RestaurantsDetail from './components/RestaurantsDetail'
 
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom"
 import Services from "./components/Services";
 import Gallery from './components/Gallery';
 
+const Contact = lazy ( () =>  import('./components/Contact'));
 
 // const heading = <h1>THis is Heading</h1>
 
@@ -59,7 +61,9 @@ const router = createBrowserRouter([
             },
             {
                 path : "/contact",
-                element: <Contact />
+                element: <Suspense fallback={<Shimmer/>} >
+                    <Contact />
+                </Suspense>
             },
             {
                 path : "/services",
