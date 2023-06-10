@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         children : [
             {
                 path: "/",
-                element : <BodyApp />
+                element : <BodyApp username ={ "Admin" }  />
             },
             {
                 path: "/about",

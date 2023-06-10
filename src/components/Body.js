@@ -11,7 +11,7 @@ const filterResData = ( allRecipes, s ) => {
      });
      return filterData;
 }
-const BodyApp = () =>{
+const BodyApp = ( { username } ) =>{
     console.log('in Body render')
     const [ allRecipeData, setAllRecipeData ]  = useState([])    
     const [ allRecipes, setAllRecipes ]  = useState([])    
@@ -57,7 +57,7 @@ const BodyApp = () =>{
                 allRecipeData.length ? 
                 allRecipes.map( function ( rec, index ){ 
                     return (
-                        <CardItem restaurant = {rec} key={ rec.data.uuid } />
+                        <CardItem restaurant = {rec} key={ rec.data.uuid } username = {username} />
                     )
                 }) : <Shimmer />
             }            

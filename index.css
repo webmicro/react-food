@@ -76,3 +76,11 @@
  background-color:darkslategray;
  min-height: 200px;
 }
+.faq_top {
+ border: 1px solid red;
+ padding: 5px 10px 20px;
+ margin: 10px 0;
+}
+.faq_top p{
+    
+}
